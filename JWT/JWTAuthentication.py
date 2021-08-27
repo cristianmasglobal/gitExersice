@@ -7,7 +7,7 @@ def auth():
         "Email" : "cristian.ceballos@masglobalconsulting.com",
         "Password" : "ElPerroFelizEquisDe"
     }
-    encode_jwt = jwt.encode(data, "secret", algorithm="HS256")
+    encode_jwt = jwt.encode(data, "S3CR37", algorithm="HS256")
     print(encode_jwt)
 
 auth()
