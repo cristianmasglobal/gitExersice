@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from voluptuous import Schema, Length, All, Required, Coerce
+=======
+from voluptuous import Schema, Length, All, Required
+>>>>>>> 34dee7ae8e9c39e23049807734379d169431c434
 
 def firstSchema():
     s = Schema(All(str, Length(min=3, max=20)))
@@ -17,6 +21,7 @@ def thirdSchema():
     s = Schema({Required("foo"): str})
     s({"foo": "hi"})
     
+<<<<<<< HEAD
 def fourthSchema():
     s = Schema("Schema")
     s("Schema")
@@ -42,3 +47,6 @@ def sevenSchema():
     validate("10")
     
 sevenSchema()
+=======
+thirdSchema()
+>>>>>>> 34dee7ae8e9c39e23049807734379d169431c434
