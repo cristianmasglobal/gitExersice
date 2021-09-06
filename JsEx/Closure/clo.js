@@ -22,3 +22,7 @@ const contador = (function(){
 contador.incrementar()
 contador.incrementar()
 contador.valor()
+contador.incrementar()
+contador.incrementar()
+contador.incrementar()
+contador.incrementar()
