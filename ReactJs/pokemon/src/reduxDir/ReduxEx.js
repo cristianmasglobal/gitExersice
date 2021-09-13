@@ -1,28 +1,29 @@
 import React from 'react'
 import { createStore } from 'redux'
+import ReactDOM from 'react-dom'
 //Action: Objetos que tienen un tipo (eventos que han ocurrido y hacen que cambie el estado)
 //Store: Objeto que reune las action y los reduxer, almacena, lee y actualiza el estado de la app
 //dispatch: evento que se envía a la store
 
 const actionIncremented = {
-    type: '@reduxer/incremented'
+    type: 'counter/incremented'
 }
 
 const actionDecremented = {
-    type: '@reduxer/decremented'
+    type: 'counter/decremented'
 }
 
 const actionReset = {
-    type: '@reduxer/reset'
+    type: 'counter/reset'
 }
 
 const ReduxEx = (state = 0, action) => {
-    switch (state.type) {
-        case '@reduxer/incremented':
+    switch (action.type) {
+        case 'counter/incremented':
             return state +1;
-        case '@reduxer/decremented':
+        case 'counter/decremented':
             return state -1;
-        case '@reduxer/reset':
+        case 'counter/reset':
             return 0;
         default:
             return state            
@@ -37,15 +38,38 @@ store.subscribe(()=>{
 
 const App = ()=>{
     return (
+        <>    
+        {store.getState()}
         <div>
-            {store.getState()}
         <button onClick={()=>{
             store.dispatch(actionIncremented)
         }}>
             +
         </button>
+
+        <button onClick={()=>{
+            store.dispatch(actionDecremented)
+        }}>
+            -
+        </button>
+
+        <button onClick={()=>{
+            store.dispatch(actionReset)
+        }}>
+            R
+        </button>
         </div>
+        </>
     )
 }
 
+const renderApp=() => {
+    ReactDOM.render(
+        < App />,
+        document.getElementById('root')
+    )
+}
+
+renderApp()
+store.subscribe(renderApp)
 export default App;
